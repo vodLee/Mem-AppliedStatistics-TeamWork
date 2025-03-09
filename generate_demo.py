@@ -29,7 +29,7 @@ system_context = f"""
     ...
     """
 
-client = OpenAI(api_key="sk-6547400fc2204dd5b5dd82cd91197f96", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="这里是key", base_url="https://api.deepseek.com")
 
 response = client.chat.completions.create(
     model="deepseek-reasoner",

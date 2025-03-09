@@ -11,7 +11,7 @@
 #     4. 文本分类：将文本归类到预设的类别（如：热点、财经、科技、体育、娱乐、军事、国际、社会、法制、房产、汽车、教育、文化、旅游、历史、理论、生活、游戏、星座、时尚、情感、其他）
 #     """
 
-# client = OpenAI(api_key="sk-6547400fc2204dd5b5dd82cd91197f96", base_url="https://api.deepseek.com")
+# client = OpenAI(api_key="这里是key", base_url="https://api.deepseek.com")
 
 # # 新增处理函数
 # def process_batch(texts_list):

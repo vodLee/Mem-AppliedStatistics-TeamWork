@@ -39,7 +39,7 @@ for item in original_data:
                 {content}
             """
             response = dashscope.Generation.call(
-                api_key="sk-9b7fee187bfb4d4c8a050363d5fc02a3",
+                api_key="这里是key",
                 model="qwq-32b",
                 messages=[{'role':'user','content':system_context}],
                 stream=True
