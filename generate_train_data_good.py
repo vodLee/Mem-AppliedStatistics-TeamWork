@@ -68,5 +68,5 @@ if not failed_queue.empty():
     with open('./failed_data.json', 'w') as f:
         json.dump(failed_data, f, indent=2, ensure_ascii=False)
 
-with open('./train_data_bad0.json', 'w') as f:
+with open('./train_data_good0.json', 'w') as f:
     json.dump(original_data, f, indent=2, ensure_ascii=False)
