@@ -100,3 +100,17 @@ field = f"""
 具体模型为qwq-32B，
 代码为generate_qianwen.py，
 结果保存在train_data_qianwen.json中
+
+
+### 模型部署
+
+模型选择：Qwen2.5-7B-Instruct⼤模型
+环境选择： AutoDL 的 4090 云 GPU 做为训练测试环境
+环境配置：选择使⽤开源的社区镜像，agiclass/fine-tuning-lab/finetune-lab-v8
+    > 社区版本镜像中已经配置好了微调所需要依赖包环境，⾮常⽅便
+
+预训练模型Qwen2.5-7B-Instruct从HuggingFace下载
+
+预训练数据格式：[TRL格式的数据集](https://huggingface.co/datasets/trl-internal-testing/hh-rlhf-helpful-base-trl-style)
+
+偏好数据集
