@@ -113,4 +113,5 @@ field = f"""
 
 预训练数据格式：[TRL格式的数据集](https://huggingface.co/datasets/trl-internal-testing/hh-rlhf-helpful-base-trl-style)
 
-偏好数据集
+偏好数据集通过merge_cot_queries.py合并成了merged_cot_queries.json
+

@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from queue import Queue
 from openai import OpenAI
 
-client = OpenAI(api_key="...", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="sk-6547400fc2204dd5b5dd82cd91197f96", base_url="https://api.deepseek.com")
 
 failed_queue = Queue()
 
