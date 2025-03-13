@@ -108,10 +108,16 @@ field = f"""
 环境选择： AutoDL 的 4090 云 GPU 做为训练测试环境
 环境配置：选择使⽤开源的社区镜像，agiclass/fine-tuning-lab/finetune-lab-v8
     > 社区版本镜像中已经配置好了微调所需要依赖包环境，⾮常⽅便
+    >
+    > 但是也可能没那么好用，因为不是针对TRL的，遇到了numpy版本不兼容问题，后来自己又重新配置了环境才解决
 
 预训练模型Qwen2.5-7B-Instruct从HuggingFace下载
 
 预训练数据格式：[TRL格式的数据集](https://huggingface.co/datasets/trl-internal-testing/hh-rlhf-helpful-base-trl-style)
 
 偏好数据集通过merge_cot_queries.py合并成了merged_cot_queries.json
+
+### 模型训练
+
+代码都在custom里头
 
