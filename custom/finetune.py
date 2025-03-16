@@ -4,6 +4,7 @@ import torch
 from transformers import (
     AutoTokenizer, 
     AutoModelForCausalLM,
+    AutoModelForSequenceClassification,
     HfArgumentParser,
 )
 from peft import LoraConfig, TaskType
@@ -20,7 +21,12 @@ def main():
     # model = AutoModelForSequenceClassification.from_pretrained("gpt2")
     # 加载预训练的生成式语言模型 (AutoModelForCausalLM) 和分词器 (AutoTokenizer)。模型加载时设定了数据类型为 torch.bfloat16
     tokenizer = AutoTokenizer.from_pretrained(model_args.model_name_or_path)
-    model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, torch_dtype=torch.bfloat16)
+    model = AutoModelForSequenceClassification.from_pretrained(
+        model_args.model_name_or_path,
+        num_labels=1,  # 输出单个奖励分数
+        torch_dtype=torch.bfloat16
+    )
+    # model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, torch_dtype=torch.bfloat16)
     peft_config = LoraConfig(
         task_type=TaskType.SEQ_CLS,
         inference_mode=False,
@@ -31,17 +37,11 @@ def main():
 
     # 如果启用了 do_train 标志，读取训练数据文件（JSONL 格式）并加载为列表格式，然后通过 InputOutputDataset 类预处理数据
     if training_args.do_train:
-        # with open(data_args.train_file, "r", encoding="utf-8") as f:
-        #     train_data = json.load(f)
-        # train_dataset = InputOutputDataset(train_data, tokenizer, data_args)
         train_data = load_dataset("json", data_files=data_args.train_file, split="train")
 
     # 如果启用了 do_eval 标志，类似地读取验证数据文件并加载为验证数据集
     if training_args.do_eval:
         eval_data = load_dataset("json", data_files=data_args.validation_file, split="train")
-        # with open(data_args.validation_file, "r", encoding="utf-8") as f:
-        #     eval_data = json.load(f)
-        # eval_dataset = InputOutputDataset(eval_data, tokenizer, data_args)
 
     trainer = RewardTrainer(
         model=model,

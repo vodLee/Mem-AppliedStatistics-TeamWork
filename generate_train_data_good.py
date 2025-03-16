@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from queue import Queue
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-6547400fc2204dd5b5dd82cd91197f96", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="sk-...", base_url="https://api.deepseek.com")
 
 failed_queue = Queue()
 
@@ -47,9 +47,9 @@ def process_batch(text):
         return str(e)
 
 with open('./page1_train_data.json', 'r') as f:
-    original_data = json.load(f)[:1000]
+    original_data = json.load(f)[1000:2000]
 
-with ThreadPoolExecutor(max_workers=20) as executor:
+with ThreadPoolExecutor(max_workers=30) as executor:
     futures = {
         executor.submit(process_batch, data["raw_data"]): data
         for data in original_data
@@ -68,5 +68,5 @@ if not failed_queue.empty():
     with open('./failed_data.json', 'w') as f:
         json.dump(failed_data, f, indent=2, ensure_ascii=False)
 
-with open('./train_data_good0.json', 'w') as f:
+with open('./train_data_good1.json', 'w') as f:
     json.dump(original_data, f, indent=2, ensure_ascii=False)

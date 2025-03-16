@@ -119,5 +119,22 @@ field = f"""
 
 ### 模型训练
 
-代码都在custom里头
+遇到过的问题
+* 环境里numpy版本不兼容，解决方案是重新配置了一个conda环境
+* 数据格式不对，原因是读取的json直接扔给了trainer，没有用dataset格式，解决方案是重新用dataset格式读取
+* 各种参数丢失，解决方案只能是一个个加
+  * The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignor
+  * ValueError: Some specified arguments are not used by the HfArgumentParser: ['--disable_dropout', 'true']
+* 环境问题，解决方案是下载
+  * ModuleNotFoundError: No module named 'trl'
+  * PackagesNotFoundError: The following packages are not available from current channels: -peft
+* 
 
+第一版，准确率只有60%
+
+根据deepseek返回进行参数修改，准确率达到了70%
+
+之后修改一下数据格式，从隐式改为显示提醒
+所以merge_cot_queries.py进行修改。
+
+显示提醒后，训练效果更好，准确率达到了78%

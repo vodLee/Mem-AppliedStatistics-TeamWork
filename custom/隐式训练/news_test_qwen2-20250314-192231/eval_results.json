@@ -1,0 +1,67 @@
+{
+  "accuracy": 70.0,
+  "score_analysis": {
+    "chosen": {
+      "mean": 5.442421875,
+      "std": 2.561324974738798,
+      "min": -0.56640625,
+      "max": 12.9375,
+      "percentile_25": 3.82421875,
+      "percentile_75": 7.171875
+    },
+    "rejected": {
+      "mean": 3.020576171875,
+      "std": 2.9974323347311205,
+      "min": -6.21875,
+      "max": 9.5,
+      "percentile_25": 1.216796875,
+      "percentile_75": 5.1015625
+    },
+    "diff": {
+      "mean": 2.421845703125,
+      "std": 3.8283221838291506,
+      "min": -5.53125,
+      "max": 13.453125,
+      "percentile_25": -0.265625,
+      "percentile_75": 4.7509765625
+    }
+  },
+  "confusion_cases": [
+    {
+      "index": 61,
+      "diff_score": -5.53125,
+      "chosen_score": 1.96875,
+      "rejected_score": 7.5
+    },
+    {
+      "index": 20,
+      "diff_score": -5.34375,
+      "chosen_score": 4.15625,
+      "rejected_score": 9.5
+    },
+    {
+      "index": 98,
+      "diff_score": -4.69140625,
+      "chosen_score": -0.56640625,
+      "rejected_score": 4.125
+    },
+    {
+      "index": 78,
+      "diff_score": 12.0625,
+      "chosen_score": 7.15625,
+      "rejected_score": -4.90625
+    },
+    {
+      "index": 19,
+      "diff_score": 12.1875,
+      "chosen_score": 8.1875,
+      "rejected_score": -4.0
+    },
+    {
+      "index": 59,
+      "diff_score": 13.453125,
+      "chosen_score": 11.0625,
+      "rejected_score": -2.390625
+    }
+  ]
+}
